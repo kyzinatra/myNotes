@@ -1,0 +1,37 @@
+.select
+  display: none
+  position: absolute
+  max-height: 200px
+  overflow: auto
+  padding: 20px
+  width: max-content
+  box-shadow: 0 0 10px -1px black
+  border-radius: 10px
+  color: $mainFontColor
+  & li
+    display: block
+    transition: .1s linear
+    padding: 10px
+    & span
+      margin-left: 10px
+    &:hover
+      background-color: #e7e7e7
+      padding: 10px
+            
+.selected
+  background-color: #bdd4ff!important  // Предлагаю забить на этот important, он перекрывает hover сверху
+.title
+  position: relative
+  padding-right: 15px
+  fill: red
+.title::after
+  content: url('../static/caret-down-solid.svg')
+  position: absolute
+  top: 0
+  right: 3px
+  width: 10px
+  height: 10px
+  transition: .1s linear
+.title:hover::after
+  content: url('../static/caret-down-black.svg')
+  top: 10px

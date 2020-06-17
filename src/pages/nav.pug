@@ -1,0 +1,97 @@
+ul.nav
+  li.popup.nav__item(data-popup="Жирный текст", style="font-weight: bold;") Ж
+  li.popup.nav__item(data-popup="Наклонный текст", style="font-style: italic;") К
+  li.popup.nav__item(data-popup="Подчеркнутй текст", style="text-decoration: underline;") Ч
+  li.popup.nav__item(data-popup="Зачеркнутый текст", style="text-decoration: line-through;") А
+  li.popup.nav__item(data-popup="Надчеркнутый текст", style="text-decoration: overline;") H
+  li.popup.nav__item(data-popup="Цвет текста")
+    .title A
+    .select.font-color-select
+  li.popup.nav__item.font-size-select.selecteble(data-popup="Размер шрифта")
+    .title: i.fas.fa-text-size
+    ul.select
+      li 8
+      li 10
+      li 12
+      li 14
+      li.selected 15
+      li 16
+      li 18
+      li 20
+      li 22
+      li 24
+      li 26
+      li 28
+      li 30
+      li 32
+      li 34
+      li 36
+      li 38
+      li 40
+      li 42
+      li 44
+      li 46
+      li 48
+  li.popup.nav__item.font-family-select.selecteble(data-popup="Шрифт")
+    .title: i.fas.fa-font
+    ul.select
+      li.selected Font
+      li Font2
+      li Font3
+      li Font4
+  li.popup.nav__item.font-style-select.selecteble(data-popup="Стиль текста")
+    .title: i.far.fa-text
+    ul.select
+      li.selected Обычный текст 
+      li.h1 Заголовок 1
+      li.h2 Заголовок 2
+      li.h3 Заголовок 3
+      li.code Программный код
+        .code__expample
+  li.popup.nav__item.selecteble(data-popup="Выравнивание")
+    .title: i.fas.fa-align-left
+    ul.select
+      li.selected
+        i.fas.fa-align-left
+        span По левому краю
+      li
+        i.fas.fa-align-center
+        span По центру
+      li
+        i.fas.fa-align-right
+        span  По правому краю
+      li
+        i.fas.fa-align-justify
+        span Растянуть по ширине
+  li.popup.nav__item(data-popup="Отступ")
+    .title: i.fas.fa-outdent
+    ul.select
+      li
+        i.fas.fa-outdent
+        span Уменьшить отступ слева
+      li
+        i.fas.fa-indent
+        span Увеличить отступ слева
+  li.popup.nav__item(data-popup="Список")
+    .title: i.fas.fa-list-ol
+    ul.select
+      li
+        i.fas.fa-list-ol
+        span Нумерованный список
+      li
+        i.fas.fa-list-ul
+        span Маркированный список
+  li.popup.nav__item(data-popup="Вставить ссылку")
+    i.fas.fa-link
+  li.popup.nav__item(data-popup="Вставить картинку")
+    i.fas.fa-images
+  li.popup.nav__item(data-popup="Перевести текст")
+    i.fas.fa-language
+  li.popup.nav__item(data-popup="Вставить графити(подпись)")
+    i.fas.fa-spray-can
+  li.popup.nav__item(data-popup="Очистить форматирование")
+    i.fas.fa-eraser
+  li.popup.nav__item(data-popup="Цитата")
+    i.fas.fa-quote-right
+  li.popup.nav__item(data-popup="Скопировать код HTML")
+    i.far.fa-code
