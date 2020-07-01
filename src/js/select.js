@@ -1,84 +1,62 @@
-/** @format */
-class Select {
-  isOpened = false;
-  openSelect(e, selects) {
-    const target = e.target.closest(".nav__item")?.querySelector(".select");
-    if (!target) return;
-
-    if (target.style.display === "block") {
-      this.isOpened = false;
-      target.style.display = "none";
-      return;
+class Select{
+  isOpen = null;
+  init(){
+    const selects_titles = document.querySelectorAll(".select__title");
+    const selects = document.querySelectorAll(".select");
+    for(let select__title of selects_titles){
+      select__title.addEventListener("click",  (e) => this.onToggleSelect(e, this));
     }
-    for (let select of selects) {
-      select.style.display = "none";
+    for(let select of selects){
+      select.addEventListener("click", (e) => this.onSelectItem(e, this))
     }
-    this.isOpened = true;
+    document.addEventListener("click", (e) => this.cleanAllSelection(e, this))
+  }
+  onToggleSelect(event, self){
+    let target = event.target.closest(".select__title").nextSibling;
+    if(!target) return;
+    
+    function closeSelects(){
+      const selects = document.querySelectorAll(".select");
+      for(let el of selects) el.style.display = "none";
+      self.isOpen = null;
+    }
+    
+    if(self.isOpen === target) return closeSelects();
+    if(self.isOpen) closeSelects();
     target.style.display = "block";
+    self.isOpen = target;
   }
 
-  loseFocus(e, selects) {
-    const target = e.target.closest(".nav__item");
-    if (target || !this.isOpened) return;
-    for (let select of selects) {
-      select.style.display = "none";
-    }
+  cleanAllSelection(event, self){
+    const target = event.target.closest(".select");
+    const soTarget = event.target.closest(".select__title")
+    if(target || soTarget) return;
+    
+    const selects = document.querySelectorAll(".select");
+    for(let el of selects) el.style.display = "none";
+    self.isOpen = null;
   }
-  newSelect(e, selecteble) {
-    const target = e.target.closest("li");
 
-    if (
-      !e.target.closest(".select") ||
-      !e.target.closest(".selecteble") ||
-      e.target.closest(".font-color-select")
-    ) {
+  onSelectItem(event, self){
+    const target = event.target.closest("li");
+    const nonselective = event.target.closest(".select__nonselective");
+    if(nonselective){
+      nonselective.style.display = "none";
+      self.isOpen = null;
       return;
     }
-    console.log(e.target.closest(".font-color-select"));
-    for (let item of e.target.closest(".select").querySelectorAll("li")) {
-      item.classList.remove("selected");
+    if(!target || !target.closest(".select")) return;
+    function cleanSelect(target){
+      const items = target.querySelectorAll(".selected");
+      for(item of items){
+        item.classList.remove("selected");
+      }
     }
+    cleanSelect(target.closest(".select"));
     target.classList.add("selected");
   }
-  setSelect() {
-    const selects = document.querySelectorAll(".select");
-    const nav = document.querySelector(".nav");
-    const selecteble = document.querySelectorAll(".selecteble");
-
-    nav.addEventListener("click", (e) => this.openSelect(e, selects));
-    nav.addEventListener("click", (e) => this.newSelect(e, selecteble));
-    document.addEventListener("click", (e) => this.loseFocus(e, selects));
-    for (let select of selects) {
-      select.style.display = "none";
-    }
-  }
 }
+
 const select = new Select();
-select.setSelect();
+select.init();
 
-import colors from "../static/colors.json";
-
-function colorSelect() {
-  const select = document.querySelector(".select.font-color-select");
-  select.addEventListener("click", (e) => {
-    const target = e.target.closest(".color");
-    console.log(target);
-    if (!target) return;
-    for (let el of select.querySelectorAll("div")) {
-      el.classList.remove("selected-color");
-    }
-    target.classList.add("selected-color");
-  });
-  let fragment = new DocumentFragment();
-  for (let color of colors.list) {
-    const container = document.createElement("div");
-    container.classList = "color";
-    if (color === "#101010") {
-      container.classList = "color selected-color";
-    }
-    container.style.backgroundColor = color;
-    fragment.append(container);
-  }
-  select.append(fragment);
-}
-colorSelect();

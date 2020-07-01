@@ -1,37 +1,64 @@
 .select
+  position: absolute
+  top: 35px
   display: none
-  position: absolute
-  max-height: 200px
-  overflow: auto
-  padding: 20px
+  left: 0
+  border: 1px solid black
+  z-index: 900
+  border-radius: 5px
   width: max-content
-  box-shadow: 0 0 10px -1px black
-  border-radius: 10px
-  color: $mainFontColor
-  & li
-    display: block
+  li
+    padding: 8px 15px
+    font-weight: normal
+    font-style: normal
+    color: $mainFontColor
     transition: .1s linear
-    padding: 10px
-    & span
-      margin-left: 10px
+    width: 100%
+    &:first-child
+      border-radius: 5px 5px 0 0
+    &:last-child
+      border-radius: 0 0 5px 5px
     &:hover
-      background-color: #e7e7e7
-      padding: 10px
-            
+      background-color: $border-light
+  &::before
+    content: ""
+    position: absolute
+    top: -17px
+    left: 4px 
+    width: 8px
+    height: 8px
+    border: 8px solid transparent;
+    border-bottom: 8px solid $neutral-primary;
+    border-radius: 0
 .selected
-  background-color: #bdd4ff!important  // Предлагаю забить на этот important, он перекрывает hover сверху
-.title
-  position: relative
-  padding-right: 15px
-  fill: red
-.title::after
-  content: url('../static/caret-down-solid.svg')
-  position: absolute
-  top: 0
-  right: 3px
-  width: 10px
-  height: 10px
-  transition: .1s linear
-.title:hover::after
-  content: url('../static/caret-down-black.svg')
-  top: 10px
+  background-color: $border-light
+.select__wrapper
+  max-height: 300px
+  overflow-y: auto
+
+.color__select
+  li
+    width: 40px
+    height: 40px
+    border-radius: 5px
+    display: inline-block
+    border: 1px solid black
+    margin: 5px
+    position: relative
+    &:first-child
+      border-radius: 5px
+    &:last-child
+      border-radius: 5px
+  .select__wrapper
+    max-width: 250px
+  .selected
+    background-color: inherit
+    &::after
+      content: '✓'
+      position: absolute
+      width: 100%
+      height: 100%
+      top: 0
+      left: 0
+      border-radius: 5px
+      background-color: rgba(255, 255, 255, 1)

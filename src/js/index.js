@@ -1,3 +1,4 @@
 /** @format */
-import "./select";
-import "./popup";
+
+import "./select"
+import "./colorSelect"
