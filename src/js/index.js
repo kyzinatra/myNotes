@@ -34,8 +34,11 @@ area.addEventListener("input", e => {
 });
 
 document.addEventListener("click", e => {
-	console.log(e);
-	console.log(e.target);
+	if (isAlt && e.target.tagName === "A") {
+		window.open(e.target.href, "_blank");
+		window.focus();
+		e.preventDefault();
+	}
 });
 
 document.addEventListener("keyup", e => {
@@ -58,5 +61,20 @@ document.addEventListener("keydown", e => {
 		isSave.state = true;
 		document.title = "Notes";
 		return false;
+	}
+});
+
+document.addEventListener("scroll", e => {
+	const scrollHeight = Math.max(
+		document.body.scrollHeight,
+		document.documentElement.scrollHeight,
+		document.body.offsetHeight,
+		document.documentElement.offsetHeight,
+		document.body.clientHeight,
+		document.documentElement.clientHeight
+	);
+	const bodyHeight = Math.ceil(window.pageYOffset + document.documentElement.offsetHeight);
+	if (bodyHeight + 35 >= scrollHeight) {
+		area.style.height = area.scrollHeight + 35 + "px";
 	}
 });

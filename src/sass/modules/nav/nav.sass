@@ -3,20 +3,25 @@
   justify-content: space-around
   align-items: center
   position: fixed
+  flex-wrap: wrap
   left: 50%
   top: 0
   transform: translateX(-50%)
   width: 80%
-  height: 40px
+  height: max-content
   background-color: #fff
   margin: 0
   padding: 0
   list-style-type: none
+  @media screen and (max-width: $smDesktopWidth)
+    width: 100%
+
 .nav__item
   position: relative
   cursor: pointer
   padding: 5px
   color: #8a8a8a
   transition: color .1s linear
+  margin: 0 5px
   &:hover
     color: $mainFontColor
