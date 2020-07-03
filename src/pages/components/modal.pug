@@ -1,0 +1,14 @@
+.modal
+  .modal__content
+    .close.close__btn &times;
+    .modal__header
+      h1 Вставить ссылку
+    .modal__body
+      label Имя ссылки: 
+        input#linkName(type="text", placeholder="Имя_ссылки")
+      label Ссылка: 
+        input#link(type="text",placeholder="https://example.ru/" )
+        
+    .modal__footer
+      button.btn.close Закрыть окно
+      button.btn#createLink Создать ссылку

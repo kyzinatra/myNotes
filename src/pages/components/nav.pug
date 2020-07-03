@@ -1,0 +1,99 @@
+ul.nav
+  li#bold.tooltip.nav__item(data-tooltip="Жирный текст", style="font-weight: bold;") Ж
+  li#italic.tooltip.nav__item(data-tooltip="Наклонный текст", style="font-style: italic;") К
+  li#underline.tooltip.nav__item(data-tooltip="Подчеркнутй текст", style="text-decoration: underline;") Ч
+  li#lineThrough.tooltip.nav__item(data-tooltip="Зачеркнутый текст", style="text-decoration: line-through;") А
+  li.nav__item.color
+    .select__title.tooltip(data-tooltip="Цвет текста")
+      span A
+      .down
+    ul.select.tab__content
+      li.tab__select 
+        h2(data-for="#tab--1").tab__active-item Цвет текста
+        h2(data-for="#tab--2") Цвет фона
+      li.tab__content
+        .tab__item.tab__active#tab--1
+          h3.color__title Выберите цвет текста
+          input.color__input-color(type="color")
+          inp
+        .tab__item#tab--2
+          h3.color__title Выберите цвет фона
+          input.color__input-font(type="color", value="#FFFFFF")
+  li#font-size.nav__item
+    .select__title.tooltip(data-tooltip="Размер шрифта")
+      i.far.fa-text-size
+      .down
+    ul.select
+      li(data-value="7") xxx-large
+      li(data-value="6") xx-large
+      li(data-value="5") x-large
+      li(data-value="4").selected large
+      li(data-value="3") medium
+      li(data-value="2") small
+      li(data-value="1") x-small
+  li#font-family.nav__item
+    .select__title.tooltip(data-tooltip="Шрифт")
+      i.far.fa-font
+      .down
+    ul.select
+      li(data-value="PT Sans").selected PT Sans
+      li(data-value="Arial, Helvetica, sans-serif") Arial, Helvetica
+      li(data-value="Lobster, cursive") Lobster
+      li(data-value="Source Sans Pro, serif") Source Sans Pro
+      li(data-value="Oswald, serif") Oswald
+      li(data-value="Playfair Display, serif") Playfair Display
+      li(data-value="Montserrat, serif") Montserrat
+  li#align.nav__item
+    .select__title.tooltip(data-tooltip="Выравнивание")
+      i.far.fa-align-left
+      .down
+    ul.select
+      li(data-value="Left").selected <i class="far fa-align-left"></i> По левому
+      li(data-value="Center") <i class="far fa-align-center"></i> По центру
+      li(data-value="Right") <i class="far fa-align-right"></i> По правому
+      li(data-value="Full") <i class="far fa-align-justify"></i> Растянуть
+  li#dent.nav__item
+    .select__title.tooltip(data-tooltip="Отступ")
+      i.far.fa-outdent
+      .down
+    ul.select.select__nonselective
+      li(data-value="indent") <i class="far fa-indent"></i> Увеличить отступ слева
+      li(data-value="outdent") <i class="far fa-outdent"></i> Уменьшить отступ слева
+  li.nav__item#list
+    .select__title.tooltip(data-tooltip="Список")
+      i.far.fa-list-ol
+      .down
+    ul.select.select__nonselective
+      li(data-value="OrderedList") <i class="far fa-list-ol"></i> Создать нумерованный список
+      li(data-value="UnorderedList") <i class="far fa-list-ul"></i> Создать ненумерованный список
+  li#addLink.tooltip.nav__item(data-tooltip="Вставить ссылку")
+    i.far.fa-link
+  li#save.tooltip.nav__item(data-tooltip="Сохранить текст")
+    i.far.fa-save
+  li#image.tooltip.nav__item(data-tooltip="Вставить картинку")
+    label
+      input.image-file(type="file")
+      i.far.fa-images
+  li#delete.tooltip.nav__item(data-tooltip="Удалить текст")
+    i.far.fa-trash-alt
+  li.tooltip.nav__item(data-tooltip="Перевести текст")
+    i.far.fa-language
+  li.tooltip.nav__item(data-tooltip="Вставить графити(подпись)")
+    i.far.fa-spray-can
+  li#undo.tooltip.nav__item(data-tooltip="Отменить (Ctrl + Z)")
+    i.far.fa-undo
+  li#redo.tooltip.nav__item(data-tooltip="Повторить (Ctrl + Y)")
+    i.far.fa-redo
+  li#horizontal.tooltip.nav__item(data-tooltip="Добавить горизонтальную линию")
+    i.far.fa-horizontal-rule
+  li#clean.tooltip.nav__item(data-tooltip="Очистить форматирование")
+    i.far.fa-eraser
+  li#spellcheck.nav__item
+    .select__title.tooltip(data-tooltip="Проверка правописания")
+      i.far.fa-spell-check
+      .down
+    ul.select
+      li.selected(data-value="true") <i class="far fa-toggle-on"></i> Включить
+      li(data-value="false") <i class="far fa-toggle-off"></i> Выключить
+  li#copyHTML.tooltip.nav__item(data-tooltip="Скопировать код HTML")
+    i.far.fa-code

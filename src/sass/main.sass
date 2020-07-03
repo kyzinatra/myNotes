@@ -31,16 +31,16 @@ body
 *:after
   box-sizing: border-box
 
+*::selection
+  color: rgba(255, 255, 255, 0.7)
+  background-color: rgba(0, 0, 0, .7)
+
 h1,h2,h3,h4,h5,h6
   margin: 0
 
 a
   text-decoration: none
-
-ul,li
-  margin: 0
-  padding: 0
-  list-style-type: none
+  
 
 section,.section
   position: relative
@@ -81,3 +81,5 @@ section,.section
 @import "modules/nav/nav"
 @import "modules/select/select"
 @import "modules/select/title"
+@import "modules/modal/modal"
+@import "modules/tabs/tabs"

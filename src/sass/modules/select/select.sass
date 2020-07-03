@@ -7,6 +7,12 @@
   z-index: 900
   border-radius: 5px
   width: max-content
+  max-height: 300px
+  overflow-y: auto
+  background-color: #fff
+  margin: 0
+  padding: 0
+  list-style-type: none
   li
     padding: 8px 15px
     font-weight: normal
@@ -20,45 +26,5 @@
       border-radius: 0 0 5px 5px
     &:hover
       background-color: $border-light
-  &::before
-    content: ""
-    position: absolute
-    top: -17px
-    left: 4px 
-    width: 8px
-    height: 8px
-    border: 8px solid transparent;
-    border-bottom: 8px solid $neutral-primary;
-    border-radius: 0
 .selected
   background-color: $border-light
-.select__wrapper
-  max-height: 300px
-  overflow-y: auto
-
-.color__select
-  li
-    width: 40px
-    height: 40px
-    border-radius: 5px
-    display: inline-block
-    border: 1px solid black
-    margin: 5px
-    position: relative
-    &:first-child
-      border-radius: 5px
-    &:last-child
-      border-radius: 5px
-  .select__wrapper
-    max-width: 250px
-  .selected
-    background-color: inherit
-    &::after
-      content: '✓'
-      position: absolute
-      width: 100%
-      height: 100%
-      top: 0
-      left: 0
-      border-radius: 5px
-      background-color: rgba(255, 255, 255, 1)

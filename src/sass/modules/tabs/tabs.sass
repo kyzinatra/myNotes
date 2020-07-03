@@ -1,0 +1,35 @@
+.tab
+  li
+    &:hover
+      background-color: inherit
+  &__select
+    display: flex
+    justify-content: center
+    h2
+      padding: 5px 10px
+      transition: .2s linear
+      border-radius: 5px
+      &:hover
+        background-color: $border-light
+  &__item
+    display: none
+    text-align: center
+    h3
+      padding: 0
+      margin: 10px
+      text-align: center
+      border: 1px solid black
+      padding: 15px 15px
+    input
+      width: 170px
+      height: 40px
+  &__active
+    display: block
+    &-item
+      background-color: $border-light
+.color
+  .selected
+    background-color: inherit
+  .select
+    li:hover
+      background-color: inherit
