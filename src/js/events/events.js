@@ -76,7 +76,7 @@ document.addEventListener("nav-event", ({ detail }) => {
 		case "createLink":
 			const linkName = document.querySelector("#linkName").value;
 			const link = document.querySelector("#link").value;
-			document.execCommand("createLink", linkName, link);
+			document.execCommand("insertHTML", null, `<a href="${link}">${linkName}</a>`);
 			break;
 	}
 });

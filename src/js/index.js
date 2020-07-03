@@ -36,7 +36,8 @@ area.addEventListener("input", e => {
 document.addEventListener("click", e => {
 	if (isAlt && e.target.tagName === "A") {
 		window.open(e.target.href, "_blank");
-		window.focus();
+		isAlt = false;
+		toggleArea(isAlt);
 		e.preventDefault();
 	}
 });

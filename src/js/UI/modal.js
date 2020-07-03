@@ -5,5 +5,9 @@ const modal = document.querySelector(".modal");
 open.addEventListener("click", e => modal.classList.add("modal_open"));
 
 for (let el of close) {
+	const inputs = modal.querySelectorAll("input");
+	for (input of inputs) {
+		input.innerHTML = "";
+	}
 	el.addEventListener("click", e => modal.classList.remove("modal_open"));
 }
