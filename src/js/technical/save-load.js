@@ -1,5 +1,4 @@
 import { isSave, settings } from "../settings";
-
 export function save() {
 	const openRequest = indexedDB.open("Editor", 1);
 	openRequest.onupgradeneeded = () => needUpgrade(openRequest);
@@ -27,7 +26,7 @@ function initSave(request) {
 	DataBase.clear();
 	const editor = document.querySelector(".area");
 	const content = editor.innerHTML;
-	const addRequest = DataBase.add({ content: content, id: 0, settings });
+	const addRequest = DataBase.add({ content: content, id: -1, settings });
 	isSave.state = true;
 }
 
@@ -35,6 +34,7 @@ function initLoad(request) {
 	const transaction = request.result.transaction("Editor", "readonly");
 	const content = transaction.objectStore("Editor");
 	const inner = content.getAll();
+
 	inner.onsuccess = () => {
 		settings.spellcheck = inner.result[0].settings.spellcheck ?? true;
 		const spellcheckItem = document.querySelectorAll("#spellcheck .select li");

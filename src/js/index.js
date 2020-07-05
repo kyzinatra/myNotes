@@ -7,7 +7,6 @@ import "./UI/color";
 import "./events/eventListenters";
 import "./UI/modal";
 import "./paint/paint";
-import "./UI/profile";
 import { save, load } from "./technical/save-load";
 import { isSave, settings } from "./settings";
 import { toggleArea } from "./technical/area";
