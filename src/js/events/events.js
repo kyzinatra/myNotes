@@ -1,6 +1,7 @@
 import { parse } from "../technical/parsing";
 import { save } from "../technical/save-load";
 import { isSave, settings } from "../settings";
+import { paintManager } from "../paint/paint";
 
 document.addEventListener("nav-event", ({ detail }) => {
 	const area = document.querySelector(".area");
@@ -77,6 +78,31 @@ document.addEventListener("nav-event", ({ detail }) => {
 			const linkName = document.querySelector("#linkName").value;
 			const link = document.querySelector("#link").value;
 			document.execCommand("insertHTML", null, `<a href="${link}">${linkName}</a>`);
+			break;
+		case "spriteSize":
+			paintManager.width = detail.value;
+			break;
+		case "spriteClean":
+			paintManager.ctx.fillStyle = "white";
+			paintManager.ctx.fillRect(0, 0, paintManager.canvas.width, paintManager.canvas.height);
+			paintManager.ctx.fillStyle = "black";
+			break;
+		case "spriteErase":
+			paintManager.isErase = !paintManager.isErase;
+			break;
+		case "spriteFill":
+			paintManager.ctx.fillStyle = paintManager.color;
+			paintManager.ctx.fillRect(0, 0, paintManager.canvas.width, paintManager.canvas.height);
+			paintManager.ctx.fillStyle = "black";
+			break;
+		case "imgCreate":
+			paintManager.canvas.toBlob(blob => {
+				const reader = new FileReader();
+				reader.readAsDataURL(blob);
+				reader.onload = function () {
+					document.execCommand("insertImage", null, reader.result);
+				};
+			});
 			break;
 	}
 });

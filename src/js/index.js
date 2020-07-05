@@ -6,6 +6,8 @@ import "./UI/tabs";
 import "./UI/color";
 import "./events/eventListenters";
 import "./UI/modal";
+import "./paint/paint";
+import "./UI/profile";
 import { save, load } from "./technical/save-load";
 import { isSave, settings } from "./settings";
 import { toggleArea } from "./technical/area";
@@ -34,8 +36,8 @@ area.addEventListener("input", e => {
 });
 
 document.addEventListener("click", e => {
-	if (isAlt && e.target.tagName === "A") {
-		window.open(e.target.href, "_blank");
+	if (isAlt && e.target.closest("a")) {
+		window.open(e.target.closest("a").href, "_blank");
 		isAlt = false;
 		toggleArea(isAlt);
 		e.preventDefault();

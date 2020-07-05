@@ -76,9 +76,7 @@ ul.nav
       i.far.fa-images
   li#delete.tooltip.nav__item(data-tooltip="Удалить текст")
     i.far.fa-trash-alt
-  li.tooltip.nav__item(data-tooltip="Перевести текст")
-    i.far.fa-language
-  li.tooltip.nav__item(data-tooltip="Вставить графити(подпись)")
+  li#addSprite.tooltip.nav__item(data-tooltip="Вставить графити(подпись)")
     i.far.fa-spray-can
   li#undo.tooltip.nav__item(data-tooltip="Отменить (Ctrl + Z)")
     i.far.fa-undo
@@ -97,3 +95,10 @@ ul.nav
       li(data-value="false") <i class="far fa-toggle-off"></i> Выключить
   li#copyHTML.tooltip.nav__item(data-tooltip="Скопировать код HTML")
     i.far.fa-code
+  li.nav__item#profileSelect
+    .select__title.tooltip(data-tooltip="Создать профиль")
+      i.far.fa-users
+      .down
+    ul.select
+      li.selected Main
+      li#profileAdd <i class="far fa-plus-square"></i> Add

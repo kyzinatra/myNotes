@@ -1,5 +1,5 @@
 .modal
-  .modal__content
+  .modal__content.createLink
     .close.close__btn &times;
     .modal__header
       h1 Вставить ссылку
@@ -8,7 +8,36 @@
         input#linkName(type="text", placeholder="Имя_ссылки")
       label Ссылка: 
         input#link(type="text",placeholder="https://example.ru/" )
-        
     .modal__footer
       button.btn.close Закрыть окно
       button.btn#createLink.close Создать ссылку
+  .modal__content.createSprite.sprite
+    .close.close__btn &times;
+    .modal__header
+      ul.sprite__nav
+        li#spriteColor.sprite__item
+          .select__title.tooltip(data-tooltip="Цвет")
+            i.far.fa-palette
+            .down
+          ul.select
+            li: input.sprite__color(type="color", value="#000000")
+        li.sprite__item#spriteSize
+          .select__title.tooltip(data-tooltip="Размер кисти") 
+            i.far.fa-paint-brush-alt 
+            .down
+          ul.select
+            li(style="font-size: 1px;" data-value="1") <i class="fas fa-circle"></i>
+            li(style="font-size: 5px;" data-value="5") <i class="fas fa-circle"></i>
+            li(style="font-size: 10px;" data-value="10") <i class="fas fa-circle"></i>
+            li(style="font-size: 15px;" data-value="15") <i class="fas fa-circle"></i>
+            li(style="font-size: 20px;" data-value="20").selected <i class="fas fa-circle"></i>
+            li(style="font-size: 25px;" data-value="25") <i class="fas fa-circle"></i>
+            li(style="font-size: 30px;" data-value="30") <i class="fas fa-circle"></i>
+        li.sprite__item.tooltip#spriteErase(data-tooltip="Резинка"): i.far.fa-eraser
+        li.sprite__item.tooltip#spriteClean(data-tooltip="Удалить все"): i.far.fa-trash-alt
+        li.sprite__item.tooltip#spriteFill(data-tooltip="Залить холст"): i.far.fa-fill-drip
+    .modal__body
+      canvas#paint
+    .modal__footer
+      button.btn.close Закрыть окно
+      button.btn.close#imgCreate Создать графити

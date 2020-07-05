@@ -1,3 +1,6 @@
+const { paintManager } = require("../paint/paint");
+const { selectManager } = require("../UI/select");
+
 const listenters = [
 	"bold",
 	"italic",
@@ -11,16 +14,20 @@ const listenters = [
 	"save",
 	"copyHTML",
 	"createLink",
+	"spriteClean",
+	"spriteErase",
+	"spriteFill",
+	"imgCreate",
 ];
 
 for (let el of listenters) {
-	document.querySelector(`#${el}`).onclick = () => {
+	document.querySelector(`#${el}`).addEventListener("click", () => {
 		document.dispatchEvent(
 			new CustomEvent("nav-event", {
 				detail: { type: el },
 			})
 		);
-	};
+	});
 }
 
 const selectListenters = [
@@ -31,6 +38,7 @@ const selectListenters = [
 	"font-family",
 	"dent",
 	"heading",
+	"spriteSize",
 ];
 
 for (let el of selectListenters) {
@@ -59,3 +67,12 @@ document.querySelector(".image-file").oninput = e => {
 		);
 	};
 };
+
+const paintColor = document.querySelector("#spriteColor input");
+paintColor.addEventListener("change", e => {
+	const target = e.target.closest("input[type='color']");
+	if (!target) return;
+	paintManager.color = target.value;
+});
+paintColor.addEventListener("blur", e => (selectManager.isColorMenuOpen = "CLOSED"));
+paintColor.addEventListener("click", e => (selectManager.isColorMenuOpen = true));
