@@ -1,6 +1,7 @@
 <!-- @format -->
 
-# webpack config
+# Мои заметки
+
 
 **Библиотеки:**
   Font awesome
@@ -22,4 +23,4 @@
 > Тоже про доступность
 
 
-## [Посмотреть готовый результат](http://note.my-webportfolio.ru/)
+### [Посмотреть готовый результат](http://note.my-webportfolio.ru/)
