@@ -70,9 +70,12 @@ document.addEventListener("nav-event", ({ detail }) => {
 			alert("Текст сохранен успешно!");
 			break;
 		case "copyHTML":
-			navigator.clipboard.writeText(area.innerHTML).then(() => {
-				alert("Текст успешно скопирован!");
-			});
+			if (!navigator.clipboard) alert("Ваш браузер не поддерживает копирование");
+			else {
+				navigator.clipboard.writeText(area.innerHTML).then(() => {
+					alert("Текст успешно скопирован!");
+				});
+			}
 			break;
 		case "createLink":
 			const linkName = document.querySelector("#linkName").value;
